@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "typeRoots": ["node_modules/@types"],
+    "sourceMap": true,          // allow sourcemap support
+    "strictNullChecks": true,   // enable strict null checks as a best practice
+    "allowJs": false,
+    "checkJs": false,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "experimentalDecorators": true,
+    "types": ["node"],
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": false,
+    "listFiles": true,
+    "listEmittedFiles": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "declaration": true,
+    "strict": true,
+    "esModuleInterop": true
+  }
+}

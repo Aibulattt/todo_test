@@ -1,0 +1,38 @@
+{
+  "extends": "./tsconfig.lint.json",
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "target": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "ignoreDeprecations": "5.0",
+    "baseUrl": ".",
+    "paths": {
+      "Config": ["src/configs/production.ts"],
+      "Models": ["src/models/index.ts"],
+      "Requests": ["src/requests/index.ts"],
+      "Stores/*": ["src/stores/*"],
+      "Ui/*": ["src/ui/*"],
+      "Utils/*": ["src/utils/*"]
+    }
+  },
+  "include": [
+    "src"
+  ]
+}
