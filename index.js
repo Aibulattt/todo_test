@@ -1,12 +1,13 @@
 const express = require('express')
+const authRouter = require('./routes/auth.route')
 
 const PORT = process.env.PORT || 5015
 
 const app = express()
 
-app.get('/', (req, res) => {
-    res.send('Started')
-})
+app.use(express.json({extended: true}))
 
-app.listen(PORT, () => console.log(`server started on port http://localhost:${PORT}/`))
+app.use('/api/auth', authRouter)
+
+app.listen(PORT, () => console.log(`server started on http://localhost:${PORT}/`))
 
