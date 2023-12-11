@@ -1,17 +1,12 @@
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import { defineConfig } from 'vite';
-import { createHtmlPlugin } from 'vite-plugin-html';
+import {defineConfig} from 'vite';
+import {createHtmlPlugin} from 'vite-plugin-html';
 
 export default defineConfig({
   publicDir: './static',
   build: {
     outDir: './public'
-    // rollupOptions: {
-    //   output: {
-    //     manualChunks: propsPath => propsPath.split('/').reverse()[propsPath.split('/').reverse().indexOf('node_modules') - 1]
-    //   }
-    // }
   },
   plugins: [
     react({
@@ -22,12 +17,10 @@ export default defineConfig({
   optimizeDeps: { exclude: ['js-big-decimal'] },
   resolve: {
     alias: {
-      Config: path.resolve(__dirname, './src/configs/production.ts'),
       Models: path.resolve(__dirname, './src/models/index.ts'),
-      Requests: path.resolve(__dirname, './src/requests/index.ts'),
-      Stores: path.resolve(__dirname, './src/stores'),
-      Ui: path.resolve(__dirname, './src/ui'),
-      Utils: path.resolve(__dirname, './src/utils')
+      Stores: path.resolve(__dirname, './src/stores/'),
+      Api: path.resolve(__dirname, './src/api/'),
+      '@': path.resolve(__dirname, './src/'),
     }
   },
   server: {

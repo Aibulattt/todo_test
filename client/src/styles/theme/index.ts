@@ -9,6 +9,7 @@ declare module '@mui/material/styles' {
       borderMain: string
       borderDanger: string
       navbarBackground: string
+      header: string
     }
     consts: {
       containerWidth: string
@@ -19,6 +20,7 @@ declare module '@mui/material/styles' {
   // allow configuration using `createTheme`
   interface ThemeOptions {
     colors: {
+      header: string
       main: string
       secondary: string
       danger: string
@@ -118,6 +120,7 @@ export const theme = createTheme({
     },
   },
   colors: {
+    header: '#dfdfdf',
     main: '#f2f7ff',
     secondary: '#dfe6ee',
     danger: '#fdf5f5',

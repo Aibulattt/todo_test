@@ -9,7 +9,7 @@
 /build
 /public
 /dist
-
+.env
 # misc
 .DS_Store
 

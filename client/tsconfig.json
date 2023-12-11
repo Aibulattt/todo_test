@@ -1,5 +1,4 @@
 {
-  "extends": "./tsconfig.lint.json",
   "compilerOptions": {
     "experimentalDecorators": true,
     "target": "esnext",
@@ -24,15 +23,11 @@
     "ignoreDeprecations": "5.0",
     "baseUrl": ".",
     "paths": {
-      "Config": ["src/configs/production.ts"],
+      "Api": ["src/api/"],
       "Models": ["src/models/index.ts"],
-      "Requests": ["src/requests/index.ts"],
       "Stores/*": ["src/stores/*"],
-      "Ui/*": ["src/ui/*"],
-      "Utils/*": ["src/utils/*"]
+      "@/*": ["src/*"]
     }
   },
-  "include": [
-    "src"
-  ]
-}
+  "include": ["src"],
+  "exclude": ["node_modules", "**/node_modules/*", "dist", "**/dist/*"]}

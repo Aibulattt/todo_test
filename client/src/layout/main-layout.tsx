@@ -1,29 +1,15 @@
-import { Alert, Button, Container, CssBaseline, ThemeProvider, Typography }
-  from '@mui/material';
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-
-import {Header} from './header';
-import {theme} from "../styles";
+import React from 'react'
+import { Navigate, Outlet } from 'react-router-dom'
+import { useAppSelector } from 'Stores/store'
 
 function MainLayout() {
+  const token = useAppSelector(store => store.auth.token)
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Header />
-      {/*{authStore.authToken*/}
-      {true
-        ? (
-          <Outlet />
-        )
-        : (
-          <Container>
-            <Alert style={{ marginTop: '50px' }} severity="info">Пожалуйста, пройдите авторизацию</Alert>
-          </Container>
-        )}
-    </ThemeProvider>
-  );
+    !token
+      ? <Navigate to="/login" />
+      : <Outlet />
+  )
 }
 
-export { MainLayout };
+export { MainLayout }
