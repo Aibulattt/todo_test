@@ -1,33 +1,26 @@
 {
   "compilerOptions": {
-    "experimentalDecorators": true,
-    "target": "esnext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
     "skipLibCheck": true,
-    "esModuleInterop": true,
+    "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "ignoreDeprecations": "5.0",
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "Api": ["src/api/"],
-      "Models": ["src/models/index.ts"],
-      "Stores/*": ["src/stores/*"],
-      "@/*": ["src/*"]
+      "@/*": ["./*"]
     }
   },
   "include": ["src"],
-  "exclude": ["node_modules", "**/node_modules/*", "dist", "**/dist/*"]}
+  "exclude": ["node_modules", "**/node_modules/*", "dist", "**/dist/*"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

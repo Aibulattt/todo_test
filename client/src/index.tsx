@@ -1,6 +1,6 @@
 import './styles/index.css'
 
-import { CssBaseline, ThemeProvider } from '@mui/material'
+import { Box, CssBaseline, ThemeProvider } from '@mui/material'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
@@ -24,7 +24,15 @@ root.render(
         <BrowserRouter>
           <CssBaseline />
           <Header />
-          <Router />
+          <Box sx={{
+            bgcolor: '#bda3a3',
+            width: '100%',
+            height: '100%',
+            pt: '30px',
+          }}
+          >
+            <Router />
+          </Box>
           <Notice />
         </BrowserRouter>
       </ThemeProvider>

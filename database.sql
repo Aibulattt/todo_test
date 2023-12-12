@@ -8,8 +8,8 @@ create TABLE users(
 create TABLE todos(
     id SERIAL PRIMARY KEY,
     title VARCHAR(255),
-    created DATE,
-    user_id INTEGER,
-    FOREIGN  KEY (user_id) REFERENCES users (id),
+    created TIMESTAMP,
+    userId INTEGER,
+    FOREIGN  KEY (userId) REFERENCES users (id),
     isDone BOOLEAN
 );

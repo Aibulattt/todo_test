@@ -35,10 +35,10 @@ class AuthController {
                 return res.status(300).json({data: {message: 'User does not exist!'}})
             }
 
-            const matchPass = await bcrypt.compare(password, users.rows[0].password)
+            const matchPass = await bcrypt.compare(password, user.rows[0].password)
             if (matchPass) {
                 const authToken = jwt.sign({email}, 'secret', {expiresIn: '8hr'})
-                res.status.json({ data: { email, authToken, userId: user.rows[0].id, message: 'Success' }})
+                res.json({ data: { email, authToken, userId: user.rows[0].id, username: user.rows[0].name, message: 'Success' }})
             } else {
                 res.json({ data: { message: 'Login failed!'}})
             }

@@ -22,9 +22,9 @@ const slice = createSlice({
       state.token = action.payload.token
       state.username = action.payload.username
       state.userId = action.payload.userId
-      localStorage.setItem(LS_AUTH_TOKEN, JSON.stringify(action.payload.token))
-      localStorage.setItem(LS_USERNAME, JSON.stringify(action.payload.username))
-      localStorage.setItem(LS_USER_ID, JSON.stringify(action.payload.userId))
+      localStorage.setItem(LS_AUTH_TOKEN, action.payload.token)
+      localStorage.setItem(LS_USERNAME, action.payload.username)
+      localStorage.setItem(LS_USER_ID, action.payload.userId)
     },
     resetCredentials: state => {
       state.token = null

@@ -6,7 +6,7 @@ export interface LoginBody {
 export type LoginBodyDTO = LoginBody
 
 export interface LoginResponse {
-  token: string
+  authToken: string
   username: string
   message: string
   userId: string

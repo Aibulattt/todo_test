@@ -1,4 +1,4 @@
-import { Box, Button, Typography, useTheme } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import authSlice from 'Stores/auth'
@@ -7,7 +7,6 @@ import { useAppDispatch, useAppSelector } from 'Stores/store'
 import { Container, Left, Right, StyledHeader } from './style'
 
 function Header() {
-  const theme = useTheme()
   const token = useAppSelector(store => store.auth.token)
   const dispatch = useAppDispatch()
 

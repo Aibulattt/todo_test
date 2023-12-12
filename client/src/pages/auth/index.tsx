@@ -1,7 +1,7 @@
 import { LoadingButton } from '@mui/lab'
 import { Button, Container, TextField, Typography } from '@mui/material'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import authSlise from 'Stores/auth'
 import { setMessage } from 'Stores/notice'
 import { useAppDispatch } from 'Stores/store'
@@ -14,6 +14,7 @@ function Auth() {
   const dispatch = useAppDispatch()
   const { useLoginMutation } = authApiSlice
   const [loginMutation, { isLoading }] = useLoginMutation()
+  const nav = useNavigate()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -26,14 +27,15 @@ function Auth() {
     const result = await loginMutation({ email, password })
 
     if ('error' in result) {
-      return
+      return false
     }
 
     dispatch(authSlise.actions.setCredentials({
-      token: result.data.token,
+      token: result.data.authToken,
       username: result.data.username,
       userId: result.data.userId,
     }))
+    return nav('/')
   }
 
   return (
