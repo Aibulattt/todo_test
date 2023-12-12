@@ -13,10 +13,10 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      Models: path.resolve(__dirname, './src/models/index.tsx'),
+      Models: path.resolve(__dirname, './src/models/index.ts'),
       Stores: path.resolve(__dirname, './src/stores/'),
       Api: path.resolve(__dirname, './src/api/'),
-      '@': path.resolve(__dirname, 'src'),
+      '@': path.resolve(__dirname, './src/'),
     },
   },
 })

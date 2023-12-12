@@ -5,7 +5,8 @@
   "scripts": {
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" "
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "i": "concurrently \"npm i\" \"npm i --prefix client\""
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
