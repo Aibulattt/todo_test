@@ -6,7 +6,7 @@ import authSlise from 'Stores/auth'
 import { setMessage } from 'Stores/notice'
 import { useAppDispatch } from 'Stores/store'
 
-import { authApiSlice } from '@/api/auth/request'
+import { authApiSlice } from '@/api/auth'
 
 import { FormContainer } from './style'
 
@@ -31,7 +31,8 @@ function Auth() {
 
     dispatch(authSlise.actions.setCredentials({
       token: result.data.token,
-      user: result.data.username,
+      username: result.data.username,
+      userId: result.data.userId,
     }))
   }
 

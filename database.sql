@@ -10,5 +10,6 @@ create TABLE todos(
     title VARCHAR(255),
     created DATE,
     user_id INTEGER,
-    FOREIGN  KEY (user_id) REFERENCES users (id)
+    FOREIGN  KEY (user_id) REFERENCES users (id),
+    isDone BOOLEAN
 );

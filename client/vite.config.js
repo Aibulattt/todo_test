@@ -17,7 +17,7 @@ export default defineConfig({
   optimizeDeps: { exclude: ['js-big-decimal'] },
   resolve: {
     alias: {
-      Models: path.resolve(__dirname, './src/models/index.ts'),
+      Models: path.resolve(__dirname, './src/models/index.tsx'),
       Stores: path.resolve(__dirname, './src/stores/'),
       Api: path.resolve(__dirname, './src/api/'),
       '@': path.resolve(__dirname, './src/'),

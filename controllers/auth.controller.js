@@ -16,9 +16,9 @@ class AuthController {
                 return res.status(300).json({data: {message: 'User with this email already exists!'}})
             }
 
-            await pool.query(`INSERT INTO users (email, name,  password) VALUES($1, $2, $3) RETURNING *`, [email, name, hashedPassword])
+            const user = await pool.query(`INSERT INTO users (email, name,  password) VALUES($1, $2, $3) RETURNING *`, [email, name, hashedPassword])
             const authToken = jwt.sign({email}, 'secret', {expiresIn: '8hr'})
-            res.json({ data: { name, authToken, message: 'Регистрация прошла успешно' }})
+            res.json({ data: { name, authToken, userId: user.rows[0].id,  message: 'Регистрация прошла успешно' }})
         } catch (err) {
             console.error(err)
             res.status(520).json({ data: { message: '' } } )
@@ -26,12 +26,10 @@ class AuthController {
     }
     async login(req, res) {
         const {email, password} = req.body
-        console.log(email, password)
 
         try {
             const user = await pool.query(`SELECT * FROM users WHERE email = $1`, [email])
 
-            console.log(user.rows)
             if (!user.rows.length) {
                 console.log('err')
                 return res.status(300).json({data: {message: 'User does not exist!'}})
@@ -40,7 +38,7 @@ class AuthController {
             const matchPass = await bcrypt.compare(password, users.rows[0].password)
             if (matchPass) {
                 const authToken = jwt.sign({email}, 'secret', {expiresIn: '8hr'})
-                res.status.json({ data: { email, authToken }, message: 'Success'})
+                res.status.json({ data: { email, authToken, userId: user.rows[0].id, message: 'Success' }})
             } else {
                 res.json({ data: { message: 'Login failed!'}})
             }

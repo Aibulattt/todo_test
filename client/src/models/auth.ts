@@ -9,6 +9,7 @@ export interface LoginResponse {
   token: string
   username: string
   message: string
+  userId: string
 }
 
 export type LoginResponseDTO = LoginResponse
@@ -25,6 +26,7 @@ export interface SignUpResponse {
   authToken: string
   name: string
   message: string
+  userId: string
 }
 
 export type SignUpResponseDTO = SignUpResponse
