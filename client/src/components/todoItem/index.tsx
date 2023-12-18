@@ -84,7 +84,7 @@ function TodoItem({ todo, onOpenModal, refetch }: Props) {
         setElement={setConfirmElement}
         onSuccess={handleDeleteTodo}
       >
-        Прерывание сессии
+        Удаление задачи
       </Confirm>
     </Box>
   )
